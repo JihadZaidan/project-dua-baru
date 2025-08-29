@@ -12,9 +12,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-neutral-100: #FFFFFF;
+  --color-neutral-200: #F5F5F5;
+  --color-neutral-300: #E6E8E8;
+  --color-neutral-400: #C3C7C7;
+  --color-neutral-500: #9EA3A3;
+  --color-neutral-600: #595E5E;
+  --color-neutral-700: #171919;
+  --color-neutral-800: #131717;
+  --color-neutral-900: #030303;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #fff;
     --foreground: #ededed;
   }
 }
