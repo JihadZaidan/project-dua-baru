@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Note from "../../../public/insight-blog/inblog-04.png"
-import Tims from "../../../public/landing-photos/branding.png"
+import Tims from "../../../public/expertise/brands.png"
 import Meeting from "../../../public/about/Video-Showcase.png"
 
 export default function DescribeDetail() {
