@@ -118,7 +118,7 @@ export default function Marketing() {
                         <h3 ref={fourteRef} className="text-neutral-100 font-sans font-medium lg:text-5xl text-2xl text-left">
                             04/ APP DEVELOPMENT.
                         </h3>
-                        <div ref={fourteRef}>
+                        <div ref={fourtRef}>
                             <Button className="ml-[-15px] w-fit justify-start gap-2 px">
                                 <p className="text-neutral-100 text-lg font-medium">Learn More</p>
                                 <ArrowRight height={20} width={20} className="text-neutral-100" />
