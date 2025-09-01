@@ -30,6 +30,8 @@ export default function Marketing() {
     useSlideFromRight(dousRef, 0.3);
     useSlideFromRight(tresseruRef, 0.3);
     useSlideFromRight(fourtRef, 0.3);
+    useSlideFromLeft(headerRef, 0.3);
+    useSlideFromRight(parRef, 0.3);
     useFadeIn(imageRef, 0.3);
 
     return (
