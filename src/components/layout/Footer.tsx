@@ -5,6 +5,7 @@ import { navigation } from "@/data/navigation";
 import { ArrowRight, ArrowUpIcon } from "lucide-react";
 import { footer } from "@/data/footer";
 import { useState, useRef } from "react";
+import { useSlideFromLeft, useSlideFromRight } from "@/library/animations";
 import { z } from "zod";
 
 // Skema validasi dengan Zod
@@ -21,6 +22,8 @@ export default function Footer() {
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const letterRef = useRef<HTMLDivElement>(null);
 
   const validate = (value: string) => {
     const result = emailSchema.safeParse(value);
@@ -55,11 +58,14 @@ export default function Footer() {
     if (email.length) validate(email);
   };
 
+  useSlideFromLeft(menuRef, 0.3);
+  useSlideFromRight(letterRef, 0.3);
+
   return (
     <div className="max-w-full w-full flex flex-col lg:px-20 pt-18 pb-20 px-10 lg:gap-80 gap-40 bg-neutral-900">
       <div className="w-full flex lg:flex-row flex-col lg:justify-between gap-18">
         {/* Bagian kiri navigasi */}
-        <div className="grid lg:grid-flow-col lg:grid-cols-3 lg:gap-8 grid-flow-row grid-cols-2 gap-10">
+        <div ref={menuRef} className="grid lg:grid-flow-col lg:grid-cols-3 lg:gap-8 grid-flow-row grid-cols-2 gap-10">
           <ul className="flex flex-col gap-5 justify-left items-left">
             {navigation
               .filter((item) => item.hideInNavbar || item.published)
@@ -80,7 +86,7 @@ export default function Footer() {
               .filter(
                 (item) =>
                   (item.hideInNavbar || item.published) &&
-                  ["Awards", "Brands", "Careers", "Inquiries", "Contact Us"].includes(item.label) 
+                  ["Awards", "Brands", "Careers", "Inquiries", "Contact Us"].includes(item.label)
               )
               .map((item, index) => (
                 <li
@@ -109,7 +115,7 @@ export default function Footer() {
         </div>
 
         {/* Bagian Newsletter */}
-        <div className="flex flex-col gap-4 justify-left items-left">
+        <div ref={letterRef} className="flex flex-col gap-4 justify-left items-left">
           <p className="text-neutral-400 font-sans font-medium text-xl">
             Sign up for our newsletter
           </p>
