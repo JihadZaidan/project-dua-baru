@@ -5,7 +5,7 @@ import { navigation } from "@/data/navigation";
 import { ArrowRight, ArrowUpIcon } from "lucide-react";
 import { footer } from "@/data/footer";
 import { useState, useRef } from "react";
-import { useSlideFromLeft, useSlideFromRight } from "@/library/animations";
+import { useSlideFromLeft, useSlideFromRight, useFadeIn } from "@/library/animations";
 import { z } from "zod";
 
 // Skema validasi dengan Zod
@@ -24,6 +24,7 @@ export default function Footer() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const letterRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   const validate = (value: string) => {
     const result = emailSchema.safeParse(value);
@@ -60,6 +61,7 @@ export default function Footer() {
 
   useSlideFromLeft(menuRef, 0.3);
   useSlideFromRight(letterRef, 0.3);
+  useFadeIn(bottomRef, 0.3);
 
   return (
     <div className="max-w-full w-full flex flex-col lg:px-20 pt-18 pb-20 px-10 lg:gap-80 gap-40 bg-neutral-900">
@@ -172,7 +174,7 @@ export default function Footer() {
       </div>
 
       {/* Bagian bawah */}
-      <div className="border-t border-transparent flex lg:flex-row flex-col gap-4 justify-between items-center text-white">
+      <div ref={bottomRef} className="border-t border-transparent flex lg:flex-row flex-col gap-4 justify-between items-center text-white">
         <p className="text-center md:text-left text-neutral-100 text-xl font-medium">
           Copyright © 2024 Nexa
         </p>
